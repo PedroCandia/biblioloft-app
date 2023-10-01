@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="dismissModal()" defaultHref="/tabs/session"></ion-back-button>
+    </ion-buttons>
+      <ion-title>Registrar progreso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="height: 100%; display: flex; align-items: center; justify-content: center;">
+  <div style="height: 85%; width: 100%; display: flex; justify-content: center; align-items: center;">
+    <ion-grid>
+      <ion-row>
+        <ion-col style="justify-content: center; display: flex;">
+          <div style="margin-right: .2rem; display: flex; justify-content: center; align-items: center; width: 80%;">
+            <ion-text>
+              Ultima página leída:
+            </ion-text>
+            <ion-item>
+              <ion-input placeholder="No. de página" [(ngModel)]="lastPage"></ion-input>
+            </ion-item>
+            <ion-text *ngIf="infoBook" > de: {{infoBook.volumeInfo.pageCount}}</ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="currentPage">
+        <ion-col style="justify-content: center; display: flex; ;">
+          <ion-text style="color: #9b9b9b">Ultima pagina leída: {{currentPage}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="justify-content: center; display: flex; margin-top: 2rem;">
+          <ion-checkbox [(ngModel)]="finished"></ion-checkbox><ion-text style="margin-left: .5rem; color: #92949c;">Finalizar libro</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div style="height: 15%; display: flex; justify-content: end; align-items: center; margin-right: 1rem;">
+    <ion-button [disabled]="!lastPage?true:false || lastPage<0" (click)="saveLastPage()">Guardar</ion-button>
+  </div>
+</ion-content>

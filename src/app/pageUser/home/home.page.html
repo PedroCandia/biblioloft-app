@@ -1,0 +1,79 @@
+
+<ion-content [fullscreen]="true">
+ 
+  <div class="body">
+
+      <ion-item *ngIf="!showCategories">
+          <ion-button id="titlebtn" (click)="titleFilter()">Titulo</ion-button>
+          <ion-button id="authorbtn" (click)="authorFilter()">Autor</ion-button>
+          <ion-button id="categorybtn" (click)="categoryFilter()">Categoria</ion-button>
+      </ion-item>
+      
+
+    <div class="busquedas">
+      <ion-grid> 
+        <ion-row class="ion-align-items-center">
+          <app-book-preview *ngFor="let bookToShow of (books$ | async)" [routerLink]="['/data-book/' + bookToShow.id]" [book]="bookToShow"></app-book-preview>
+        </ion-row>
+      </ion-grid>
+    </div> 
+  </div>
+
+  <div class="categoriesHome" *ngIf="showCategories">
+    <div class="popularBooks">
+      <ion-text color="primary">
+        Libros de Terror
+      </ion-text>
+    </div>
+  
+    <div class="busquedas">
+      <ion-slides pager="false" [options]="screenUser()" class="ion-margin-top">
+        <ion-slide *ngFor="let terrorToShow of (terrorBooks$ | async)">
+          <app-book-preview [routerLink]="['/data-book/' + terrorToShow.id]" [book]="terrorToShow"></app-book-preview>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  
+    <div class="popularBooks">
+      <ion-text color="primary">
+        Libros de Aventura
+      </ion-text>
+    </div>
+  
+    <div class="busquedas">
+      <ion-slides pager="false" [options]="screenUser()" class="ion-margin-top">
+        <ion-slide *ngFor="let aventuraToShow of (aventuraBooks$ | async)">
+          <app-book-preview [routerLink]="['/data-book/' + aventuraToShow.id]" [book]="aventuraToShow"></app-book-preview>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  
+    <div class="popularBooks">
+      <ion-text color="primary">
+        Libros Romanticos
+      </ion-text>
+    </div>
+  
+    <div class="busquedas">
+      <ion-slides pager="false" [options]="screenUser()" class="ion-margin-top">
+        <ion-slide *ngFor="let romanticosToShow of (romanticosBooks$ | async)">
+          <app-book-preview [routerLink]="['/data-book/' + romanticosToShow.id]" [book]="romanticosToShow"></app-book-preview>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  
+    <div class="popularBooks">
+      <ion-text color="primary">
+        Libros de Ficción
+      </ion-text>
+    </div>
+  
+    <div class="busquedas">
+      <ion-slides pager="false" [options]="screenUser()" class="ion-margin-top">
+        <ion-slide *ngFor="let ficcionToShow of (ficcionBooks$ | async)">
+          <app-book-preview [routerLink]="['/data-book/' + ficcionToShow.id]" [book]="ficcionToShow"></app-book-preview>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+</ion-content>

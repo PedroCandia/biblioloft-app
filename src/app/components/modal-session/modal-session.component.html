@@ -1,0 +1,21 @@
+<ion-content>
+  <div class="selectBook">
+    <ion-text>1. Selecciona uno de tus libros para lectura</ion-text>
+    <ion-select  placeholder="Lecturas" interface="popover" (ionChange)="valueIonSelect($event)">
+      <!-- colocar luego titulos de libros en lecturas -->
+        <ion-select-option *ngFor="let titles of allArrays.reading.book" value="{{titles.id}}">{{ titles.volumeInfo.title }}</ion-select-option>
+    </ion-select>
+  </div>
+  <div class="selectDate">
+    <ion-text>2. Fecha y hora de inicio</ion-text>
+    <ion-datetime presentation="time-date" (ionChange)="valueDateSelectStart($event)" value="{{dateSessionStart}}" hour-cycle="h12" locale="esp-GB"></ion-datetime>
+  </div>
+  <div class="selectDate">
+    <ion-text>2. Fecha y hora fin</ion-text>
+    <ion-datetime presentation="time-date" (ionChange)="valueDateSelectEnd($event)" value="{{dateSessionEnd}}" hour-cycle="h12" locale="esp-GB"></ion-datetime>
+  </div>
+  <div class="btn">
+    <a (click)="dismissModal()" *ngIf="!itemSessionTS">Cancelar</a>
+    <ion-button (click)="createReading(dataSession)">{{!itemSessionTS? 'Generar Sesión':'Guardar'}}</ion-button>
+  </div>
+</ion-content>

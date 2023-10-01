@@ -1,0 +1,150 @@
+
+<ion-header>
+  <ion-toolbar class="hideWide">
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button *ngIf="!back"></ion-menu-button> /Si se busca craer un botón que lleve directo al menu-->
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Datos del libro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <app-bar-navigation></app-bar-navigation>
+
+  <!-- <ion-item class="navigationBar">
+    <div class="elementsBar">
+      <ion-button
+        (click)="goHome()"
+        size="large"
+        fill="outline"
+        class="hide home"
+      >
+        <ion-text>BIBLIOLOFT</ion-text>
+      </ion-button>
+      <div class="search">
+        <ion-searchbar
+          animated
+          placeholder="Busca libros"
+          #input
+          autocomplete="off"
+        ></ion-searchbar>
+
+        <ion-button size="small"><ion-icon name="play"></ion-icon></ion-button>
+      </div>
+      <div class="navigation hide2">
+        <a cursor="hand" (click)="goHome()">Inicio</a>
+        <a (click)="goSession()">Sesiones</a>
+        <a (click)="goProfile()">Perfil</a>
+        <a (click)="goSettings()">Configuración</a>
+      </div>
+    </div>
+  </ion-item> -->
+
+  <div class="body">
+    <div class="container" *ngIf="book">
+      <ion-toolbar>
+        <div class="image-box">
+          <div class="image-section">
+            <!-- crossOrigin='anonymous' id="imagen"
+            (click)="downloadImage(book.volumeInfo.imageLinks.smallThumbnail, 'ImageGoogleBook.jpg')" -->
+            <ion-img
+              *ngIf="book.volumeInfo.imageLinks.smallThumbnail"
+              [src]="book.volumeInfo.imageLinks.smallThumbnail"
+            ></ion-img>
+          </div>
+
+          <div>
+            <ion-text>
+              <strong><span id="resultado"></span></strong>
+              <strong><span id="probabilidad"></span></strong>
+            </ion-text>
+          </div>
+
+          <div class="info_box">
+            <ion-item text-wrap class="ion-text-center">
+              <p class="title">
+                <ion-text>{{book.volumeInfo.title}}</ion-text>
+              </p>
+            </ion-item>
+
+            <div class="buttons">
+              <div class="checkbox_container">
+                <label class="checkmark" (click)="checkboxDBfav()" id="fav" *ngIf="addFav">
+                  <ion-icon name="star"></ion-icon>
+                </label>
+                <label class="checkmark" (click)="checkboxDBfav()" *ngIf="!addFav">
+                  <ion-icon name="star"></ion-icon>
+                </label>
+                <ion-text style="color: black;">{{!addFav? 'Favoritos':'En favoritos'}}</ion-text>
+              </div>
+              <div class="checkbox_container">
+                <label class="checkmark" (click)="checkboxDBrecent()" id="play" *ngIf="addRead">
+                  <ion-icon name="play"></ion-icon>
+                </label>
+                <label class="checkmark" (click)="checkboxDBrecent()" *ngIf="!addRead">
+                  <ion-icon name="play"></ion-icon>
+                </label>
+                <ion-text style="color: black;">{{!addRead? 'Leer':'En lectura'}}</ion-text>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <ion-list lines="full">
+          <ion-item *ngIf="book.volumeInfo.authors">
+            <ion-label class="bookData">
+              <ion-text>Autor</ion-text>
+              <p>
+                <ion-text color="dark">{{book.volumeInfo.authors}}</ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item *ngIf="book.volumeInfo.publishedDate">
+            <ion-label class="bookData">
+              <ion-text>Fecha de publicación</ion-text>
+              <p>
+                <ion-text color="dark">{{book.volumeInfo.publishedDate}}</ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-item *ngIf="book.volumeInfo.pageCount">
+            <ion-label class="bookData">
+              <ion-text>Páginas</ion-text>
+              <p>
+                <ion-text color="dark">{{book.volumeInfo.pageCount}}</ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item
+            class="ion-text-center"
+            color="primary"
+            *ngIf="!book.volumeInfo.description"
+          >
+            <ion-title>No se encontro Sinopsis</ion-title>
+          </ion-item>
+          <ion-item
+            class="ion-text-center"
+            color="primary"
+            *ngIf="book.volumeInfo.description"
+          >
+            <ion-title>Sinopsis</ion-title>
+          </ion-item>
+          <ion-label
+            class="ion-text-justify"
+            *ngIf="book.volumeInfo.description"
+          >
+            <h3>
+              <ion-text color="dark"
+                >{{removeTags(book.volumeInfo.description)}}</ion-text
+              >
+            </h3>
+          </ion-label>
+        </ion-list>
+      </ion-toolbar>
+    </div>
+  </div>
+</ion-content>

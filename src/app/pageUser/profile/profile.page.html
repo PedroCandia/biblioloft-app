@@ -1,0 +1,107 @@
+<ion-content>
+  <div class="header-profile">
+    <div class="not-blur">
+      <div class="profile-back-buttons">
+        <ion-img *ngIf="noUser || myProfile" src="https://cdn.discordapp.com/attachments/807789869321420811/953046106097451018/Logo_V1.png"></ion-img>
+        <a (click)="goLogin()" *ngIf="noUser"> Iniciar sesión </a>
+        <a (click)="goHome()" *ngIf="myProfile"> Volver a home </a>
+      </div>
+      <div class="profile-container">
+        <!-- Información del usuario -->
+        <ion-avatar>
+          <img *ngIf="dataUser.url" src="{{dataUser.url}}">
+        </ion-avatar>
+        <ion-avatar  *ngIf="dataUser.achievActual" (click)="openModalAchievements()"
+        style= "width:100% !important;
+          height : 100% !important;
+          max-width: 100px !important;
+          max-height: 100px !important;
+          padding-left: 1rem ;
+          cursor: pointer;
+        ">
+          <img src="{{dataUser.achievActual}}">
+        </ion-avatar>
+        <div class="info-user">
+          <h3 *ngIf="dataUser.email" class="ion-text">{{dataUser.nombre}}</h3>
+          <h5 *ngIf="dataUser.nombre" class="ion-text">{{dataUser.email}}</h5>
+        </div>
+        <div class="books-lot">
+            <ion-text>
+                <h3 *ngIf="allArrays.favorite">{{(allArrays.favorite).length}}</h3>
+                <h3 *ngIf="!allArrays.favorite">0</h3>
+                 <!-- consultar cantidad de datos en firebase -->
+                <h5>Favoritos</h5>
+            </ion-text>
+            <ion-text>
+                <h3 *ngIf="allArrays.reading">{{(allArrays.reading).length}}</h3>
+                <h3 *ngIf="!allArrays.reading">0</h3>
+                <!-- consultar cantidad de datos en firebase -->
+                <h5>Lecturas</h5>
+            </ion-text>
+        </div>
+      </div>
+      <div class="socialmedia" *ngIf="!noUser">
+        <share-buttons
+        [include]="['facebook','twitter','whatsapp','copy']"
+        url="https://www.biblioloft.com/#/profile/{{uid}}"
+        title="!Comparte tus libros en redes sociales!"
+        description="Mira mis libros en Biblioloft!"
+        class="pt-5"></share-buttons>
+      </div>
+      <div class="socialmediaPhone" *ngIf="!noUser">
+        <share-buttons
+        [include]="['facebook', 'messenger','twitter','whatsapp','copy']"
+        url="https://www.biblioloft.com/#/profile/{{uid}}"
+        title="!Comparte tus libros en redes sociales!"
+        description="Mira mis libros en Biblioloft!"
+        class="pt-5"></share-buttons>
+      </div>
+      <div class="class-btn">
+        <ion-item id="section-all" class="selected" (click)="allSection()">Loft</ion-item>
+        <ion-item id="section-fav"  (click)="favSection()">Favoritos</ion-item>
+        <ion-item id="section-read" (click)="readSection()">Lecturas</ion-item>
+        <ion-item  id="section-finished" (click)="finishedSection()">Terminados</ion-item>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- [include]="['facebook','twitter','linkedin','pinterest','reddit','mix','vk','telegram','messenger','whatsapp','xing','line','sms','email','copy']" -->
+
+  <!-- TODOS LOS LIBROS -->
+  <div class="container selected-container" id="all-container">
+    <ion-grid>
+      <ion-row *ngIf="allArrays.allBooks" >
+        <app-book-preview *ngFor="let bookToShow of allArrays.allBooks.book"  [routerLink]="['/data-book/' + bookToShow.id]" [book]="bookToShow"></app-book-preview>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- LIBROS FAVORITOS -->
+  <div class="container" id="fav-container">
+    <ion-grid>
+      <ion-row *ngIf="allArrays.favorite" >
+          <app-book-preview *ngFor="let bookToShow of allArrays.favorite.book" [routerLink]="['/data-book/' + bookToShow.id]" [book]="bookToShow"></app-book-preview>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- LEÍDOS RECIENTEMENTE -->
+  <div class="container " id="read-container">
+    <ion-grid>
+      <ion-row *ngIf="allArrays.reading">
+        <app-book-preview *ngFor="let bookToShow of allArrays.reading.book" [routerLink]="['/data-book/' + bookToShow.id]" [book]="bookToShow"></app-book-preview>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- TERMINADOS -->
+  <div class="container " id="finished-container">
+    <ion-grid>
+      <ion-row *ngIf="allArrays.finished">
+        <app-book-preview *ngFor="let bookToShow of allArrays.finished.book" [routerLink]="['/data-book/' + bookToShow.id]" [book]="bookToShow"></app-book-preview>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

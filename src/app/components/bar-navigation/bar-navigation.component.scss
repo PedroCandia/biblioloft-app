@@ -1,0 +1,93 @@
+
+
+.navigationBar {
+    width: 100%;
+    margin: 0 0;
+    --background: rgb(255, 255, 255); 
+    ion-button{
+      display: none;
+    }
+    .elementsBar {
+      width: 100%;
+      .search {
+        margin: 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 0;
+        ion-button {
+          margin: 0 0;
+        }
+      }
+    }
+  }
+
+
+
+  @media screen and (max-width: 1200px) {
+    .hide2 {
+      display: none;
+    }
+
+  }
+  
+  @media screen and (min-width: 1200px) {
+    .navigation {
+      margin: 0 0;
+      display: flex;
+      justify-content: center;
+  
+      a {
+        margin-left: 1.2rem;
+        margin-right: 1.2rem;
+        text-decoration: none;
+        font-size: 1.1rem;
+        color: rgb(131, 39, 39);
+        cursor: pointer;
+      }
+  
+      a:hover {
+        color: rgb(228, 125, 125);
+        
+      }
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    
+      .navigationBar {
+        display: block;
+        width: 100%;
+        margin: 0 0;
+        padding: 0 0;
+        ion-button{
+          display: block;
+        }
+        .elementsBar {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+  
+          .search {
+            height: 3rem;
+            width: 50rem;
+            min-width: 35rem;
+            max-width: 55rem;
+            display: flex;
+            ion-searchbar {
+              max-width: 60rem;
+            }
+          }
+  
+          .home {
+            color: rgb(73, 6, 6);
+  
+            font-size: 1.6rem;
+            --border-color: rgb(255, 255, 255);
+            --background-hover: none;
+          }
+        }
+      }
+    
+  }

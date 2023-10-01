@@ -1,0 +1,7 @@
+{
+  "name": "biblioloft-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

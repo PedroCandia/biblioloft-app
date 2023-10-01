@@ -1,0 +1,91 @@
+
+
+<ion-content>
+
+    <div class="hide">
+
+    </div>
+
+  <div class="container">
+      <header class="header">
+        <ion-img class ="icon" src="https://media.discordapp.net/attachments/807789869321420811/953046106097451018/Logo_V1.png?width=507&height=676"></ion-img>
+      </header>
+
+      <div class=" form">
+        <h2>Crear una cuenta</h2>
+
+        <div class="input_container">
+          <ion-item>
+          <ion-label position="floating" color="medium"><ion-icon name="person-outline"></ion-icon>Usuario</ion-label>
+            <ion-input type="text"
+              [(ngModel)]="user.name"
+              required class="register_input"
+              maxlength="20"
+              placeholder="Max. 20 caracteres"
+            ></ion-input>
+          </ion-item>
+        </div>
+
+          <div class="input_container">
+            <ion-item>
+            <ion-label position="floating" color="medium"><ion-icon name="mail-outline"></ion-icon>Correo Electronico</ion-label>
+            <ion-input type="text" #email [(ngModel)]="user.email" required class="register_input"> </ion-input>
+            </ion-item>
+          </div>
+
+          <div class="input_container">
+            <ion-item>
+              <ion-label position="floating" color="medium"><ion-icon name="key-outline"></ion-icon>Contraseña</ion-label>
+              <ion-input
+                #password [(ngModel)]="user.pass"
+                required class="register_input"
+                type="{{typePass}}"
+                minlength="6"
+                placeholder="Min. 6 caracteres">
+              </ion-input>
+              <ion-button slot="end" fill="clear" (click)="toggleShow(true)" class="type-toggle">
+                <ion-icon  name="eye-outline" [hidden]="!showPassword" class="iconEye"></ion-icon>
+                <ion-icon  name="eye-off-outline" [hidden]="showPassword" class="iconEye"></ion-icon>
+              </ion-button>
+              <!-- <a class="type-toggle" (click)="toggleShow(true)">
+                <ion-icon slot="end" class="show-option" [hidden]="showPassword" name="eye-off-outline"></ion-icon>
+                <ion-icon slot="end" class="hide-option" [hidden]="!showPassword" name="eye-outline"></ion-icon>
+              </a> -->
+            </ion-item>
+          </div>
+
+        <div class="input_container">
+          <ion-item>
+          <ion-label position="floating" color="medium"><ion-icon name="key-outline"></ion-icon>Confirmar Contraseña</ion-label>
+          <ion-input
+            #confPassword [(ngModel)]="user.confpass"
+            required class="register_input"
+            type="{{typeConf}}"
+            minlength="6"
+            placeholder="Min. 6 caracteres"
+          ></ion-input>
+          <ion-button slot="end" fill="clear" (click)="toggleShow(false)" class="type-toggle">
+            <ion-icon  name="eye-outline" [hidden]="!showConfPassword" class="iconEye"></ion-icon>
+            <ion-icon  name="eye-off-outline" [hidden]="showConfPassword" class="iconEye"></ion-icon>
+          </ion-button>
+          <!-- <a class="type-toggle" (click)="toggleShow(false)">
+            <ion-icon class="show-option" [hidden]="showConfPassword" name="eye-off-outline"></ion-icon>
+            <ion-icon class="hide-option" [hidden]="!showConfPassword" name="eye-outline"></ion-icon>
+          </a> -->
+          </ion-item>
+        </div>
+
+      <ion-button
+          type="submit" class="register_button" color="rosaoscuro"
+          (click)="onRegister()" expand="block">
+          Confirmar
+      </ion-button>
+    </div>
+
+    <ion-footer class="footer_register">
+      <b>¿Ya tienes una cuenta?</b>
+      <a class="go_login_button" (click)="goLogin()"> Iniciar Sesión </a>
+    </ion-footer>
+
+</div>
+</ion-content>

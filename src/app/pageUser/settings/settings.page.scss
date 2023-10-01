@@ -1,0 +1,61 @@
+
+ion-content{
+    --ion-background-color:rgb(231, 231, 231);
+
+    
+ 
+
+        .container{
+           
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            .options{
+                width: 100%;
+                max-width: 50rem;
+            }
+            
+        }
+
+    ion-item{   
+        --ion-background-color:rgb(255, 255, 255);
+        width: 100%;
+        max-width: 50rem;
+        
+        ion-label{
+        
+        color: rgb(34, 34, 34);
+        margin-top: 5px;
+        margin-bottom: 0rem;
+        }
+
+        
+
+
+    }
+
+        ion-icon{
+            width: 1.2rem;
+            height: 1.1rem;      
+            margin-right: 0.4rem;
+            margin-top: 0.2rem;
+            color: rgb(34, 34, 34);
+            margin: none;
+        }
+
+        .login-button{
+            
+            color: #000000;
+            -color: #000000;          
+            font-size: 0.9rem;
+            width: 70%;
+            max-width: 50rem;
+           
+            position: absolute;
+            bottom:10px;
+
+            
+            
+        }
+    }

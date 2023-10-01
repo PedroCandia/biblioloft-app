@@ -1,0 +1,28 @@
+
+<ion-item class="navigationBar">
+  <div class="elementsBar">
+    <ion-button
+      (click)="goHome()"
+      size="large"
+      fill="outline"
+      class="hide home"
+    >
+      <ion-text>BIBLIOLOFT</ion-text>
+    </ion-button>
+    <div class="search">
+      <ion-searchbar
+        animated
+        placeholder="Buscar un libro"
+        #input
+        autocomplete="off"
+        (keyup.enter)="(getValue($event))"
+      ></ion-searchbar>
+    </div>
+    <div class="navigation hide2">
+      <a cursor="hand" (click)="goHome()">Inicio</a>
+      <a (click)="goSession()">Sesiones</a>
+      <a (click)="goProfile()">Perfil</a>
+      <a (click)="goSettings()">Configuración</a>
+    </div>
+  </div>
+</ion-item>

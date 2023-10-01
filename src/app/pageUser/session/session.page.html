@@ -1,0 +1,48 @@
+<ion-content>
+
+  <ion-grid class="content">
+    <ion-row>
+      <ion-col class="subContent2">
+        <ion-text>Proximas Sesiones</ion-text>
+        <ion-row style="justify-content: end;">
+          <ion-button color="tertiary" *ngIf="itemSelectedValue" (click)='openSessionModal("edit")' [disabled]="itemSessionsTS.length > 1">Editar</ion-button>
+          <ion-button color="danger" *ngIf="itemSelectedValue" (click)="deleteSession()">Eliminar</ion-button>
+        </ion-row>
+
+        <div class="sessions-week" *ngFor="let sessions of recentBooksArray">
+          <ion-item style="cursor:default;">
+            <ion-grid>
+              <ion-row>
+                <ion-col style="display: flex; align-items: center;">
+                  <ion-checkbox (click)="itemSelected(sessions.startTS)" role="checkbox" style="margin-right: .4em"></ion-checkbox>
+                  <ion-img src="{{sessions.bookData.volumeInfo.imageLinks.smallThumbnail}}"></ion-img>
+                  <div><ion-text>
+                    <h4>{{sessions.bookData.volumeInfo.title }}</h4>
+                    <h5>Fecha de incio: {{ sessions.formatStart.weekDays }}   {{ sessions.formatStart.day }}/{{ sessions.formatStart.mes }}/{{ sessions.formatStart.year }}</h5>
+                    <h5>{{ sessions.formatStart.hour }}:{{ sessions.formatStart.lengthMin === 1? '0'+sessions.formatStart.min:sessions.formatStart.min}} {{sessions.formatStart.hour>11?'pm':'am'}}</h5>
+                  </ion-text></div>
+                </ion-col>
+                <ion-col style="display: flex; align-items: center;">
+                  <div><ion-text>
+                    <h4 style="visibility: hidden;">{{sessions.bookData.volumeInfo.title }}</h4>
+                    <h5>Fecha fin: {{ sessions.formatEnd.weekDays }}   {{ sessions.formatEnd.day }}/{{ sessions.formatEnd.mes }}/{{ sessions.formatEnd.year }}</h5>
+                    <h5>{{ sessions.formatEnd.hour }}:{{ sessions.formatEnd.lengthMin === 1? '0'+sessions.formatEnd.min:sessions.formatEnd.min}} {{sessions.formatEnd.hour>11?'pm':'am'}}</h5>
+                  </ion-text></div>
+                </ion-col>
+                <ion-col style="align-items: center; display: flex; justify-content: center;">
+                  <div style="text-align: center; display: grid; justify-content: center;">
+                    <h5 style="max-width: 12rem;" *ngIf="checkIfSessionStarted(sessions.startTS) && !checkIfSessionEnded(sessions.endTS)">Sesión en curso...</h5>
+                    <ion-button style="max-width: 12rem;" *ngIf="checkIfSessionEnded(sessions.endTS)" (click)="openModalRegisterProgress(sessions.bookData.id, sessions.startTS)" >Registrar progreso</ion-button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-button class="buttonAddSession" (click)='openSessionModal("add")'>+</ion-button>
+</ion-content>

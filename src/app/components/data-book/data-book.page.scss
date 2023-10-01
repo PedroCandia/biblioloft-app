@@ -1,0 +1,196 @@
+.image-section {
+  width: 50%;
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0.5rem;
+}
+
+.image-box {
+  display: flex;
+  align-items: center;
+}
+
+.info_box {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  .title {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    padding:  0 10%;
+    .checkbox_container{
+
+      display: block;
+      justify-content: center;
+      text-align: center;
+        width: 70px;
+        ion-text{
+          margin-left: auto;
+          margin-right: auto;
+          color: #bdbdbd;
+          font-size: 0.8rem;
+        }
+        .checkmark {
+          margin-left: auto;
+          margin-right: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background-color: #ddd;
+        border-radius: 100%;
+        position: relative;
+        overflow: hidden;
+        transition: background-color 0.4s;
+        button{
+          ion-icon{
+            font-size: 1.4rem;
+            color: #bdbdbd;
+          }
+        }
+      }
+
+      #play{
+        background-color: #ffffff;
+        border: 2px solid #23d482;
+        border-radius: 25px;
+        ion-icon{
+          transition: 0.5s;
+          font-size: 1.6rem;
+          color: #23d482;
+        }
+
+      }
+      #fav{
+        background-color: #ffffff;
+        border: 2px solid #eed233;
+        border-radius: 25px;
+        ion-icon{
+          transition: 0.5s;
+          font-size: 1.6rem;
+          color: #eed233;
+        }
+      }
+    }
+  }
+}
+
+ion-list {
+  padding: 0;
+  .nameBook {
+    height: max-content;
+    width: max-content;
+  }
+
+  .bookData {
+    padding-left: 0.5rem;
+  }
+  ion-item {
+    margin-top: 1vh;
+    height: fit-content;
+
+    ion-label {
+      font-size: 0.9rem;
+
+      q {
+        font-size: 1.2rem;
+      }
+      p {
+        margin-top: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+    }
+
+    .title {
+      font-size: 1.3rem;
+    }
+  }
+}
+ion-list {
+  ion-label {
+    h3 {
+      font-size: 1.1rem;
+      margin: 5%;
+      background-color: rgb(255, 226, 226);
+      margin: 0;
+      padding: 1.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .hide {
+    display: none;
+  }
+}
+
+//----------------------  WIDE SCREEN  -------------------//
+
+@media screen and (max-width: 1200px) {
+  .hide2 {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navigation {
+    margin: 0 0;
+    display: flex;
+    justify-content: center;
+
+    a {
+      margin-left: 1.2rem;
+      margin-right: 1.2rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      color: rgb(131, 39, 39);
+      cursor: pointer;
+    }
+
+    a:hover {
+      color: rgb(228, 125, 125);
+      
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  ion-content {
+    --background: rgb(228, 228, 228);
+
+    .body {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      justify-content: center;
+
+      .container {
+        margin: 2rem 0;
+        max-width: 50rem;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+          rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      }
+
+      .image-section {
+        margin: 0.5rem;
+      }
+    }
+  }
+
+  .hideWide {
+    display: none;
+  }
+}

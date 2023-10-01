@@ -1,0 +1,155 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar color="">
+    <img class= "logo" src="https://cdn.discordapp.com/attachments/853112770933293086/910970350785953833/ic_libro.png">
+    <ion-buttons slot="end">
+      <ion-button size="small" class="login-button" (click)="goLogin()">Iniciar sesion</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="signup-button" size="small" fill="outline" (click)="goRegister()">Registrarse</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <ion-header id="header">
+    <div class="header-welcome">
+      <div class="bar-navigation">
+       <ion-img src="https://cdn.discordapp.com/attachments/807789869321420811/953046106097451018/Logo_V1.png"></ion-img>
+        <div class="btns">
+          <a class="go_login_btn" (click)="goLogin()">Iniciar sesión</a>
+          <a class="go_login_btn" (click)="goRegister()">Registrarse</a>
+        </div>
+      </div>
+      <div class="info">
+        <h3 class="info_content">
+          Comienza a llevar el control de tus lecturas, comparte tus gustos con tus amigos y personaliza tu experiencia de lectura.
+        </h3>
+
+        <ion-buttons>
+          <ion-button
+
+            shape="round"
+            class="login-button"
+            (click)="goLogin()"
+            >Comienza ahora</ion-button
+          >
+        </ion-buttons>
+      </div>
+      <a class="button-scroll" (click)="toCard('first-card')">
+        <ion-icon class="icon" name="caret-down-outline"></ion-icon>
+      </a>
+    </div>
+  </ion-header>
+
+  <div id="first-card" class="card-container">
+    <div class="info-container">
+      <ion-card-header>
+      <ion-card-title>¿Cuál es nuestra misión?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="info_content">
+      Con Biblioloft podrás manejar tus tiempos de lectura, somos una herramienta
+      con el objetivo de facilitar tu manejo del tiempo que le deseas dedicar a leer,
+       con notificaciones, alertas y personalización.
+    </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <img src="https://media.discordapp.net/attachments/953724140123222116/953761020822818856/undraw_season_change_f99v.png?width=1093&height=676">
+          <ion-title>Mejor organización </ion-title>
+          <ion-text>Consigue un orden de tus libros favoritos y los libros que has leído, todo en un mismo lugar.</ion-text>
+        </ion-col>
+        <ion-col>
+          <img src="https://media.discordapp.net/attachments/953724140123222116/953760759370874880/undraw_book_reading_kx9s.png?width=1009&height=676">
+          <ion-title>Aumentar la lectura </ion-title>
+          <ion-text>Crea un hábito de lectura con recordatorios y notificaciones que establezcas.</ion-text>
+        </ion-col>
+        <ion-col>
+          <img src="https://media.discordapp.net/attachments/953724140123222116/953771371463344208/undraw_Happy_news_re_tsbd.png">
+          <ion-title>Motivar a leer </ion-title>
+          <ion-text>Esperamos que con Biblioloft puedas generar un hábito de lectura, podrás acceder a nuestros servicios desde diferentes dispositivos y a toda hora.</ion-text>
+        </ion-col>
+
+      </ion-row>
+    </div>
+    <a class="button-scroll" (click)="toCard('second-card')">
+      <ion-icon class="icon" name="caret-down-outline" ></ion-icon>
+    </a>
+  </div>
+
+  <div id="second-card" class="card-container">
+    <ion-img class="hide" src="https://media.discordapp.net/attachments/953724140123222116/953727362711830528/card1-img.png"></ion-img>
+    <div class="info-container">
+      <ion-card-header>
+      <ion-card-title>Busca tus libros favoritos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="info_content">
+      Podrás buscar libros que te gustaria leer, o tambien libros ya leídos que
+      quieres guardar en un registro para nunca olvidarlos.
+    </ion-card-content>
+    </div>
+
+    <a class="button-scroll" (click)="toCard('third-card')">
+      <ion-icon class="icon" name="caret-down-outline" style="color: rgb(49, 49, 49); font-size: 2rem;"></ion-icon>
+    </a>
+  </div>
+
+  <div id="third-card" class="card-container">
+    <div class="info-container">
+      <ion-card-header>
+        <ion-card-title>Programa sesiones de lectura</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="info_content">
+        Encuentra tiempo de lectura en tu horario apretado y utilízalo al maximo
+        con nuestra función para programar sesiones.
+      </ion-card-content>
+    </div>
+      <ion-img class="hide" src="https://media.discordapp.net/attachments/953724140123222116/953733225103126538/undraw_Calendar_re_ki49.png?width=871&height=676"></ion-img>
+      <a class="button-scroll" (click)="toCard('fourth-card')">
+        <ion-icon class="icon" name="caret-down-outline" style="color: rgb(49, 49, 49); font-size: 2rem;"></ion-icon>
+      </a>
+  </div>
+
+  <div id="fourth-card" class="card-container">
+    <div class="info-container">
+      <ion-card-header>
+      <ion-card-title>Comparte con tus amigos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="info_content">
+      Comparte en redes sociales tus libros favoritos,
+      deja que tus gustos hablen por si mismos.
+    </ion-card-content>
+    <div class="icons">
+      <ion-icon name="logo-facebook"></ion-icon>
+      <ion-icon name="logo-twitter"></ion-icon>
+      <ion-icon name="logo-whatsapp"></ion-icon>
+    </div>
+    <a class="button-scroll" (click)="toCard('fifth-card')">
+      <ion-icon class="icon" name="caret-down-outline"></ion-icon>
+    </a>
+    </div>
+
+  </div>
+
+
+
+  <div id="fifth-card" class="card-container">
+    <div class="info-container">
+      <ion-card-header>
+      <ion-card-title>¿Qué esperar de nuestro servicio?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="info_content">
+      Esperamos que con biblioloft puedas conocer una nueva manera de leer que
+      sea de tu agrado, poder acceder a ella desde diferentes dispositivos sin
+      ningun tipo problema y a toda hora.
+    </ion-card-content>
+    </div>
+    <ion-img class="hide" src="https://media.discordapp.net/attachments/953724140123222116/953776709923127356/undraw_Sync_re_492g.png?width=966&height=676"></ion-img>
+    <a class="button-scroll" (click)="toCard('header')">
+      <ion-icon class="icon" name="caret-up-outline"></ion-icon>
+    </a>
+  </div>
+  <ion-toolbar class="footer_cont">
+    <ion-title class="footer">© Biblioloft 2022. Derechos reservados</ion-title>
+  </ion-toolbar>
+</ion-content>
+

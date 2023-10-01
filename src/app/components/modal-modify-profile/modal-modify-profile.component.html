@@ -1,0 +1,60 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <ion-menu-button *ngIf="!back"></ion-menu-button> /Si se busca craer un botón que lleve directo al menu-->
+      <ion-back-button (click)="dismissModal()" defaultHref="/tabs/settings"></ion-back-button>
+    </ion-buttons>
+      <ion-title> Configuracion de tu cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="image-section">
+      <ion-avatar>
+        <img *ngIf="!data.url" src="https://cdn.discordapp.com/attachments/522699340771360773/973849020961280060/upload_image.png">
+        <img *ngIf="data.url" src="{{data.url}}">
+      </ion-avatar>
+      <input type="file" accept=".jpg, .png" (change)="uploadImagetoFirebase($event)" id="inputFile"/>
+      <label for="inputFile" class="custom-file-upload" style="background-color: #C54C5E ; color:white;">
+        Cambiar imagen
+      </label>
+    </div>
+
+    <div class="info_container">
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <div id="nameText" class="placeholder">
+            <ion-text *ngIf="data.nombre"> {{data.nombre}}</ion-text> <a *ngIf="data.nombre" (click)="editName()"> editar </a>
+          </div>
+          <div id="nameInputContainer" class="input_container">
+            <ion-input id="nameInput" class="input"
+              placeholder="Escriba nuevo usuario"
+              maxlength="20"
+              placeholder="Max. 20 caracteres"
+            ></ion-input> <a (click)="cancelName()"> cancelar </a>
+          </div>
+        </ion-item>
+
+        <!-- <ion-item>
+          <ion-label position="stacked">Correo electronico</ion-label>
+
+          <div id="mailText" class="placeholder">
+            <ion-text *ngIf="data.email"> {{data.email}}</ion-text> <a *ngIf="data.email" (click)="editMail()"> editar </a>
+          </div>
+          <div id="mailInputContainer" class="input_container">
+            <ion-input  #refIonInput id="mailInput" class="input" required placeholder='Escriba nuevo correo'></ion-input><a (click)="cancelMail()"> cancelar </a>
+          </div>
+          </ion-item>
+        <div class="pass_container">
+         <a (click)="changePass(data.email)" class="resetPass">Restablecer Contraseña</a>
+        </div> -->
+
+      </ion-list>
+    </div>
+</ion-content>
+
+<div class="form">
+  <ion-button id="saveBtn" (click)="saveChanges()" disabled>Guardar</ion-button>
+</div>

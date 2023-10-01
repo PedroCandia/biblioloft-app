@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Logros</ion-title>
+    <ion-buttons slot="end">
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-title style="padding-bottom: 3%; padding-top: 2%; text-align: center;">Seleccione un logro para mostrar en su perfil: </ion-title>
+  <ion-item style="cursor: pointer;" *ngFor="let item of achievArray | keyvalue" (click)="showAlert(item.value.title, item.value.url)">
+    <ion-img style="max-width: 10%; padding-right: 1rem;" src="{{item.value.url}}"></ion-img>
+    <ion-text>{{item.value.title}}: {{item.value.description}}</ion-text>
+  </ion-item>
+</ion-content>

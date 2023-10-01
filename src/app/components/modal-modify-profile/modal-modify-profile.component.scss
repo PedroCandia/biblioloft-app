@@ -1,0 +1,118 @@
+ion-content{
+  display: flex;
+}
+
+.image-section{
+  margin: 0 0;
+  padding: 1rem 0;
+  width: 100%;
+  display: block;
+  justify-content: center;
+  background-color: rgb(219, 219, 219);
+  text-align: center;
+  ion-avatar{
+    margin: 0 auto;
+    margin-bottom: 1rem;
+      img{
+        align-items: center;
+
+      }
+  }
+
+  a{
+    cursor: pointer;
+    color: gray;
+  }
+
+  }
+
+.info_container{
+  ion-list{
+    ion-item{
+
+      margin: 0 2rem;
+      margin-top: 1rem;
+      ion-label{
+        color: rgb(128, 128, 128);
+      }
+      ion-input {
+        font-size: 1rem;
+        padding:  0 1rem;
+        margin-top: 1rem;
+      }
+      .placeholder{
+        width: 100%;
+        display:  flex;
+        justify-content: space-between;
+        font-size: 1rem;
+        padding:  0 1rem;
+        margin-top: 1rem;
+
+        ion-text{
+          font-size: 0.95rem;
+          color: rgb(49, 49, 49);
+        }
+        a{
+          cursor: pointer;
+        }
+      }
+
+      .input_container{
+        width: 100%;
+        display: none;
+        justify-content: space-around;
+        align-items: center;
+
+        a{
+          cursor: pointer;
+          color: rgb(104, 104, 104);
+        }
+
+      }
+    }
+
+    .pass_container{
+      margin: 4rem 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+       .resetPass{
+        cursor: pointer;
+        color: rgb(139, 139, 139);
+
+
+      }
+
+
+    }
+
+
+  }
+}
+
+
+.form{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 50rem;
+
+
+  ion-button{
+    width: 40%;
+    min-width: fit-content;
+    position: absolute;
+    bottom: 10px;
+  }
+}
+#inputFile{
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #000;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}

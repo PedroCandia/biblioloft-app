@@ -1,0 +1,249 @@
+.ion-page,
+#root,
+body,
+ion-content,
+#background-content {
+  --background: rgb(240, 240, 240);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .hide {
+    height: 100%;
+    width: 60%;
+
+    position: absolute;
+    background-image: url(https://images.pexels.com/photos/3747593/pexels-photo-3747593.jpeg?cs=srgb&dl=pexels-polina-zimmerman-3747593.jpg&fm=jpg);
+    background-size: cover;
+    transform: scaleX(-1);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    filter: brightness(0.5);
+  }
+
+  .container {
+    margin-left: 60%;
+    .image-section {
+      width: 100%;
+      height: auto;
+      display: block;
+      align-items: center;
+      padding-top: 2.8em;
+      padding-bottom: 1.2rem;
+
+      background: linear-gradient(
+        0deg,
+        rgba(197, 76, 94, 1) 85%,
+        rgba(198, 45, 67, 1) 100%
+      );
+      border-bottom-left-radius: 90px 70px;
+    }
+
+    ion-img {
+      height: 7rem;
+    }
+
+    h1 {
+      color: white;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-top: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    .footer {
+      .go_welcome_button {
+        cursor: pointer;
+        margin-top: 0.9rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .hide {
+      display: none;
+    }
+    .container {
+      margin: 0 0 0 0;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  min-height: max-content;
+  max-height: max-content;
+  justify-content: center;
+  align-items: center;
+
+  P {
+    color: rgb(124, 124, 124);
+    margin-right: 0.5rem;
+  }
+  .footer_container {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    font-size: 1rem;
+    background: rgb(240, 240, 240);
+    color: rgb(184, 49, 49);
+    margin: 1rem;
+  }
+
+  @media screen and (max-height: 765px) {
+    .footer_container {
+      position: static;
+    }
+  }
+
+  .go_welcome_button {
+    padding-left: 0.5rem;
+    color: rgb(197, 76, 94);
+    cursor: pointer;
+
+    font-size: 1rem;
+    margin-top: 10px;
+    width: parent;
+  }
+
+  .go_welcome_button:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 50%;
+    background: rgb(197, 76, 94);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+
+  .go_welcome_button:hover:after {
+    width: 100%;
+    left: 0;
+  }
+}
+
+ion-item {
+  --ion-background-color: white;
+  border-radius: 50px;
+}
+
+ion-icon {
+  padding-right: 0.6rem;
+  color: rgb(197, 76, 94);
+}
+ion-label {
+  margin-left: 15px;
+  font-size: 1rem;
+  top: 4px;
+  background: none;
+}
+
+.login-section {
+  position: static;
+  width: 100%;
+  margin-top: 1rem;
+
+  .heading {
+    margin-top: 10px;
+
+    p {
+      padding: 0 20%;
+      text-align: center;
+
+      font-size: 1.2rem;
+      color: #7b7b7b;
+    }
+  }
+
+  ion-select {
+    width: min-content;
+    color: rgb(99, 99, 99);
+  }
+
+  .login-form {
+    padding: 5% 10%;
+    width: 100%;
+    align-items: center;
+    display: block;
+    justify-content: center;
+
+    .form-input {
+      width: 100%;
+      border: 1px;
+      border-radius: 50px;
+      text-transform: initial;
+      box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1rem;
+    }
+  }
+  .action-button {
+    text-align: center;
+    padding: 0;
+    .login-button {
+      text-align: center;
+      margin-top: 1rem;
+      width: 80%;
+      background-color: var(--ion-color-rosaoscuro-shade);
+      font-size: 0.9rem;
+    }
+    p {
+      margin-top: 5px;
+      font-size: 1rem;
+      color: #7b7b7b;
+      padding-bottom: 10px;
+    }
+    .signup-button {
+      --border-color: #b4b4b4;
+      color: #000000;
+      -color: #000000;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      width: 80%;
+    }
+
+    .forgotPass-button {
+      color: #686868;
+
+      font-size: 0.75rem;
+      margin-top: 10px;
+      width: parent;
+
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      display: inline-block;
+      position: relative;
+    }
+
+    .forgotPass-button:after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 2px;
+      left: 50%;
+
+      background: #b4b4b4;
+      transition: width 0.3s ease 0s, left 0.3s ease 0s;
+      width: 0;
+    }
+
+    .forgotPass-button:hover:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+.iconEye {
+  font-size: 24px;
+  vertical-align: middle;
+}
+.type-toggle {
+  height: 75%;
+  align-items: center;
+  --ripple-color: transparent;
+  --background-hover: transparent;
+}

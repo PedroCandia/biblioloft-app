@@ -1,0 +1,442 @@
+html {
+  scroll-behavior: smooth;
+}
+
+ion-content {
+  --ion-background-color: rgb(255, 255, 255);
+}
+
+ion-header {
+  background: url("https://images.pexels.com/photos/844297/pexels-photo-844297.jpeg?cs=srgb&dl=pexels-eberhard-grossgasteiger-844297.jpg&fm=jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+  .header-welcome {
+    backdrop-filter: brightness(0.4);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .bar-navigation {
+      margin-top: 1.5rem;
+      margin-left: 5rem;
+      margin-right: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      ion-img {
+        --color: white;
+        width: 2rem;
+        max-width: fit-content;
+      }
+      .btns {
+        margin-right: 5rem;
+        display:flex;
+        gap: 20px;
+        a {
+          color: white;
+          cursor: pointer;
+         
+         
+        }
+
+        .go_login_btn {
+          
+          color: rgb(255, 255, 255);
+          cursor: pointer;
+      
+          font-size: 1rem;
+          margin-top: 10px;
+          
+         
+        }
+      
+        .go_login_btn:after {
+          background: none repeat scroll 0 0 transparent;
+          
+          content: "";
+          display: flex;
+          flex-direction: row;
+          height: 2px;
+          left: 50%;
+          background: rgb(158, 118, 118);
+          transition: width 0.3s ease 0s, left 0.3s ease 0s;
+          width: 0;
+        }
+      
+        .go_login_btn:hover:after {
+          width: 100%;
+          left: 0;
+        }
+
+      }
+    }
+    .info {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .info_content {
+        margin: 0;
+        max-width: 55rem;
+
+        text-align: center;
+        color: white;
+        font-size: 2rem;
+        font-weight: lighter;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      ion-button {
+        width: 13rem;
+        --background: rgb(255, 255, 255);
+
+        --color: rgb(31, 22, 22);
+        font-weight: bold;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3rem;
+      }
+    }
+
+    .button-scroll{
+      display: flex;
+      justify-content: end;
+      margin-right: 2rem;
+       .icon {
+
+      color: white;
+
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      background: none;
+
+
+      display: block;
+      border-radius: 50%;
+      margin-left: -2px;
+      animation-name: scroll-wheel;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+    }
+
+    @keyframes scroll-wheel {
+      from {
+        transform: translate3d(0, px, 0);
+        opacity: 1;
+      }
+      to {
+        transform: translate3d(0, 10px, 0);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.footer_cont {
+  color: black;
+  font-size: 10px;
+  text-align: center;
+}
+
+.card-container {
+  position: relative;
+  height: 90%;
+  background-color: white;
+  padding: 5rem 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  .info-container {
+    ion-card-header {
+      ion-card-title {
+        font-size: 3rem;
+        font-weight: bold;
+        max-width: 30rem;
+        text-align: start;
+      }
+    }
+    ion-card-content {
+      max-width: 30rem;
+      text-align: start;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  ion-img {
+    width: 35rem;
+    min-width: 30rem;
+  }
+  a{
+    position: absolute;
+    bottom: 2rem;
+    right: 4rem;
+    color: rgb(49, 49, 49);
+    font-size: 2rem;
+    cursor: pointer;
+    animation-name: scroll-wheel;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+}
+
+#second-card {
+  ion-img {
+    margin-right: 1rem;
+  }
+}
+
+#third-card {
+  .info-container {
+    margin-left: 1rem;
+  }
+  ion-img {
+    width: 50rem;
+  }
+}
+
+#fourth-card {
+  height: 80%;
+  padding: 0;
+  ion-card-header {
+    max-width: none;
+    display: flex;
+    justify-content: center;
+    ion-card-title {
+      max-width: 40rem;
+    }
+  }
+  ion-card-content {
+    max-width: none;
+  }
+  .info-container {
+    margin-left: 1rem;
+    ion-card-content {
+      text-align: center;
+    }
+    .icons {
+      font-size: 4rem;
+      color: #e65959;
+      ion-icon {
+        margin: 2rem 2.5rem;
+      }
+    }
+  }
+  ion-img {
+    width: 50rem;
+  }
+}
+
+#first-card {
+  padding: 0;
+  width: auto;
+  min-width: fit-content;
+  justify-content: center;
+  .info-container {
+
+    ion-card-header {
+      max-width: none;
+      display: flex;
+      justify-content: center;
+      ion-card-title {
+        max-width: none;
+        text-align: center;
+      }
+    }
+    ion-card-content {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 60rem;
+      text-align: center;
+    }
+
+      ion-row{
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        max-width: 70rem;
+        ion-col{
+
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         margin: 0 1rem;
+         img{
+          margin-left: auto;
+          margin-right: auto;
+           height: 15rem;
+           width: 25rem;
+         }
+         ion-title{
+          margin: 1rem 0;
+          height: auto;
+          font-size: 1.5rem;
+         }
+         ion-text{
+           text-align: center;
+           font-size: 1.2rem;
+           margin: 0 1rem;
+           color: #555555;
+         }
+
+
+
+        }
+      }
+
+  }
+}
+
+#fifth-card{
+  ion-img{
+    width: 50rem;
+  }
+}
+
+
+// -------------------- Movil Resolution ----------------------//
+
+@media screen and (max-width: 800px) {
+  .hide{
+  display: none;
+  }
+
+  ion-header {
+    .header-welcome {
+
+      .bar-navigation {
+        margin-left: 2rem;
+        .btns {
+          margin-right: 1rem;
+        }
+      }
+      .info {
+        .info_content {
+          max-width: 23rem;
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+  .card-container {
+    height: auto;
+    padding: 4rem 1.5rem;
+
+    .info-container {
+      ion-card-header {
+        ion-card-title {
+          font-size: 2rem;
+          max-width: 25rem;
+          text-align: center;
+        }
+      }
+      ion-card-content {
+        max-width: 25rem;
+        text-align: center;
+        font-size: 1.3rem;
+      }
+    }
+
+    ion-img {
+      width: 35rem;
+      min-width: 30rem;
+    }
+  }
+
+  #first-card {
+    ion-img {
+      margin-right: 0;
+    }
+  }
+
+  #third-card {
+    height: auto;
+    padding: 4rem 1.5rem;
+    ion-card-content {
+      max-width: 25rem;
+    }
+    .info-container {
+      margin-left: 0;
+
+      .icons {
+        font-size: 3rem;
+        color: #e65959;
+        ion-icon {
+          margin: 2rem 1rem;
+        }
+      }
+    }
+    ion-img {
+      width: 50rem;
+    }
+  }
+
+  #fourth-card {
+    padding: 4rem 1.5rem;
+    width: auto;
+
+    .info-container {
+
+
+        ion-row{
+
+
+          ion-col{
+
+
+           margin: 1rem;
+           img{
+            margin-left: auto;
+            margin-right: auto;
+             height: 10rem;
+             width: 15rem;
+           }
+           ion-title{
+            margin: 1rem 0;
+
+            font-size: 1.5rem;
+           }
+           ion-text{
+             text-align: center;
+             font-size: 1.2rem;
+             margin: 0 1rem;
+             color: #555555;
+           }
+
+
+
+          }
+        }
+
+    }
+  }
+
+  .footer_cont {
+
+    text-align: center;
+    ion-title{
+      padding: 0;
+      font-size: 1rem;
+      font-weight: lighter;
+    }
+  }
+}

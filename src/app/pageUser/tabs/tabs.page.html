@@ -1,0 +1,27 @@
+<app-bar-navigation></app-bar-navigation>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar class="hide" slot="bottom" color="rosaoscuro">
+      <ion-tab-button tab="home">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label>Inicio</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="session">
+        <ion-icon name="book-outline"></ion-icon>
+        <ion-label>Programar sesión</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button [routerLink]="['/tabs/profile/' + id]">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="settings">
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Configuración</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
